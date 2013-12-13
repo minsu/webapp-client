@@ -1,0 +1,56 @@
+@import "compass/css3";
+@import "compass/reset";
+
+@import "modules/flex";
+
+@import "vendor/font-awesome";
+@import "vendor/semantic";
+
+$font: 'Bree Serif', serif;
+$zindex-main-menu: 1000;
+
+@font-face {
+  font-family: "Alphabet of Children";
+  src:
+    url("/static/fonts/Alphabet-of-Children.eot?") format("eot"),
+    url("/static/fonts/Alphabet-of-Children.woff") format("woff"),
+    url("/static/fonts/Alphabet-of-Children.ttf") format("truetype");
+}
+
+* {
+  @include box-sizing(border-box);
+  &:after  { @include box-sizing(border-box); }
+  &:before { @include box-sizing(border-box); }
+
+  //-----------------------------------------------------------------
+  // MRK - may be removed
+  //-----------------------------------------------------------------
+  outline: none; 
+  -webkit-tap-highlight-color: transparent;
+  //-----------------------------------------------------------------
+}
+
+html,
+body {
+  font-family: $font;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  background-color: #FCFCFC;
+}
+
+.app {
+  .navigation {
+    .main.menu {
+      top: 0px;
+      min-width: 320px;
+      z-index: $zindex-main-menu;
+      @include box-sizing(border-box);
+      @include transition(margin 0.3s ease);
+      .item {
+        @include border-radius(0px);
+      }
+    }
+  }
+}

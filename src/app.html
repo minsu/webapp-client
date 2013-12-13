@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title><!-- @echo title --></title>
+
+<!-- mobile icons -->
+<link rel="apple-touch-icon" href="static/images/icon-57.png"/>
+<link rel="apple-touch-icon" sizes="72x72" href="static/images/icon-72.png"/>
+<link rel="apple-touch-icon" sizes="114x114" href="static/images/icon-114.png"/>
+<link rel="apple-touch-icon" sizes="144x144" href="static/images/icon-144.png">
+
+<!-- mobile webapp configuration -->
+<meta name="apple-mobile-web-app-capable" content="yes"> <!-- full screen -->
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="transparent">
+<meta name="format-detection" content="telephone=no"> <!-- no phone number recognition -->
+<meta name = "viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"> <!-- fixed scale to 1.0 -->
+
+<!-- app meta information -->
+<meta name="description" content="<!-- @echo description -->">
+<meta name="keywords" content="<!-- @echo keywords -->">
+<meta name="author" content="<!-- @echo author -->">
+
+<!-- Bree Serif (Google Fonts) -->
+<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+
+<!-- @if BUILD_MODE == 'DEVELOPMENT' -->
+<link rel="stylesheet" type="text/css" href="static/css/app.css">
+
+<script src="static/scripts/vendor/jquery-2.0.3.min.js"></script>
+<script src="static/scripts/vendor/lodash.min.js"></script>
+<script src="static/scripts/vendor/angular.min.js"></script>
+<script src="static/scripts/vendor/angular-animate.min.js"></script>
+<script src="static/scripts/vendor/angular-cookies.min.js"></script>
+<script src="static/scripts/vendor/angular-resource.min.js"></script>
+<script src="static/scripts/vendor/angular-route.min.js"></script>
+<script src="static/scripts/vendor/angular-sanitize.min.js"></script>
+<script src="static/scripts/vendor/angular-touch.min.js"></script>
+<!-- @endif -->
+
+<!-- @if BUILD_MODE == 'PRODUCTION' -->
+<link rel="stylesheet" type="text/css" href="static/css/app.min.css">
+<script src="static/scripts/vendor.min.js"></script>
+<!-- @endif -->
+</head>
+
+<body class="app">
+  <div class="navigation">
+    <!-- @include views/navigation.html -->
+  </div>
+  <div class="content" style="margin-top:40px;">  
+    <!-- @include views/main.html -->
+  </div>
+
+  <!-- @if BUILD_MODE == 'DEVELOPMENT' -->
+  <script src="static/scripts/app.js"></script>
+  <!-- @endif -->
+  <!-- @if BUILD_MODE == 'PRODUCTION'  -->
+  <script src="static/scripts/app.min.js"></script>
+  <!-- @endif -->
+  </body>
+</html>

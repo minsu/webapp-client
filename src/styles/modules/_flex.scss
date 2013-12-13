@@ -1,0 +1,90 @@
+//-------------------------------------------------------------------
+// flex mixins
+//-------------------------------------------------------------------
+$css3-flex-legacy-enabled: false !default;
+
+@mixin flex-container($value) {
+  @include flex-container-display;
+  @include flex-container-orient($value);  
+}
+
+@mixin flex-element($grow, $shrink, $basis, $order) {
+  @include flex-element-config($grow, $shrink, $basis);
+  @include flex-element-order($order);
+}
+
+@mixin flex-element-config($grow, $shrink, $basis) {
+  //-----------------------------------------------------//
+  // 2009 Syntax
+  //-----------------------------------------------------//
+  @if $css3-flex-legacy-enabled {
+    -webkit-box-flex: $grow $shrink $basis;
+    -moz-box-flex: $grow $shrink $basis;
+  }
+  //-----------------------------------------------------//
+
+  -webkit-flex: $grow $shrink $basis;
+  -ms-flex: $grow $shrink $basis;
+  flex: $grow $shrink $basis;  
+}
+
+@mixin flex-element-order($value) {
+  //-----------------------------------------------------//
+  // 2009 Syntax
+  //-----------------------------------------------------//
+  @if $css3-flex-legacy-enabled {
+    -webkit-box-ordinal-group: $value;
+    -moz-box-ordinal-group: $value;
+  }
+  //-----------------------------------------------------//
+
+  -webkit-order: $value;
+  -ms-flex-order: $value;
+  order: $value;    
+}
+
+@mixin flex-container-display {
+  //-----------------------------------------------------//
+  // 2009 Syntax
+  //-----------------------------------------------------//
+  @if $css3-flex-legacy-enabled {
+    display: -webkit-box;
+    display: -moz-box;
+  }
+  //-----------------------------------------------------//
+
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex-container-orient($value) {
+  //-----------------------------------------------------//
+  // 2009 Syntax
+  //-----------------------------------------------------//
+  @if $css3-flex-legacy-enabled {
+    @if $value == row {
+      -webkit-box-orient: horizontal;
+      -moz-box-orient: horizontal;
+      -ms-box-orient: horizontal;
+    }
+    @if $value == column {
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      -ms-box-orient: vertical;
+    }
+  }
+  //-----------------------------------------------------//
+
+  -moz-flex-direction: $value;
+  -ms-flex-direction: $value;
+  -webkit-flex-direction: $value;
+  flex-direction: $value;
+}
+
+@mixin flex-container-justify($value) {
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  -ms-justify-content: $value;
+  justify-content: $value; 
+}
